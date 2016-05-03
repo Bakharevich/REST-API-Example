@@ -3,7 +3,7 @@ Test project for Vitaly.
 
 ## Installation
 
-1. Via Composer install all required components:
+- Via Composer install all required components:
 
 ``` bash
 $ composer install --no-dev
@@ -11,7 +11,7 @@ $ composer install --no-dev
 
 If you want to user dev stuff (like PHPUnit), remove --no-dev
 
-2. Chmod /logs/ for writing
+- Chmod /logs/ for writing
 
 ## Params
 
