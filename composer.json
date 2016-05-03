@@ -1,0 +1,15 @@
+{
+    "require": {
+        "slim/slim": "^3.3",
+        "monolog/monolog": "^1.19"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+          "Bmi\\Classes\\": "classes/",
+          "Bmi\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#unit").change(function(){
+                var unit = $("#unit option:selected").val();
+
+                var titleHeight = '';
+                if (unit == 'imperial') titleHeight = 'Height (inches)';
+                else titleHeight = 'Height';
+
+                var titleWeight = '';
+                if (unit == 'imperial') titleWeight = 'Weight (pounds)';
+                else titleWeight = 'Weight';
+
+                $("LABEL[for='height']").text(titleHeight);
+                $("LABEL[for='weight']").text(titleWeight);
+            });
+
+            $("#frm").submit(function(e) {
+                e.preventDefault();
+
+                var weight = $("#weight").val();
+                var height = $("#height").val();
+                var unit = $("#unit option:selected").val();
+
+                $.ajax({
+                    url: '/get/',
+                    data: {
+                        weight:  weight,
+                        height: height,
+                        unit:   unit,
+                        type: 'json'
+                    },
+                    dataType: 'json',
+                    success: function(result){
+                        $("#result-bmi").text(result.data.bmi);
+                        $("#result-category").text(result.data.description);
+                    },
+                    error: function() {
+                        alert('Error');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>BMI Calculator</h1>
+
+        <br/><br/>
+
+        <div class="col-sm-6 text-left">
+            <form id="frm">
+                <div class="form-group">
+                    <label for="height">Height</label>
+                    <input type="text" class="form-control" id="height" placeholder="Height">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <input type="text" class="form-control" id="weight" placeholder="Weight">
+                </div>
+                <div class="form-group">
+                    <label for="unit">Units</label>
+                    <select class="form-control" id="unit">
+                        <option value="metric">Metric</option>
+                        <option value="imperial">Imperial</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <br/>
+        </div>
+        <div class="col-sm-6 text-left">
+            <div class="well">
+                <p><strong>BMI</strong> is a measurement which determines which weight category a person belongs to. Depending on their height and weight, a person can belong to one of the following weight categories:</p>
+
+                <ul>
+                    <li>underweight (BMI less than 18.5)</li>
+                    <li>normal weight (BMI between 18.5 & 24.9)</li>
+                    <li>overweight (BMI between 25.0 & 29.9)</li>
+                    <li>obese (BMI 30.0 and above)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                <h3>BMI result:</h3>
+                <h4 id="result-bmi"></h4>
+
+                <h3>Category:</h3>
+                <h4 id="result-category"></h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
