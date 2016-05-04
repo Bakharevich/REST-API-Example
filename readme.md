@@ -1,6 +1,18 @@
 # REST API BMI calculation
 Test project for Vitaly. 
 
+## About
+
+For test task purposes some features were used:
+
+- OOP pattern "Strategy" for units. So, it's easy now to add any unit type
+- PHP framework "Slim"
+- Monolog for logging
+- PHPUnit tests for class Bmi 
+- Composer
+- functional test and Guzzle for api request
+- Bootstrap 3 for example
+
 ## Installation
 
 - Via Composer install all required components:
@@ -20,17 +32,16 @@ Parameters via GET request:
 - height (cm for metric, inches for imperial)
 - weight (kg for metric, pounds for imperial)
 - unit (metric or imperial)
-- type of response (json or xml)
 
 ## Demo:
 
 Calculate BMI for weight 85 kg, height 185 (metric):
 
-http://bmi.lt/get/?weight=85&height=185&unit=metric&type=json
+http://bakharevich.by/projects/bmi/public/get/?weight=85&height=185&unit=metric
 
 Calculate BMI for weight 187 pounds, height 72 inches (imperial):
 
-http://bmi.lt/get/?weight=187&height=72&unit=imperial&type=json
+http://bakharevich.by/projects/bmi/public/get/?weight=187&height=72&unit=imperial
 
   
 ## Featuers

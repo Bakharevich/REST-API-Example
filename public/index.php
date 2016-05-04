@@ -2,7 +2,6 @@
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-//use \Bmi;
 use \Bmi\Classes;
 
 require '../vendor/autoload.php';
@@ -50,10 +49,9 @@ $app->get('/get/', function(Request $request, Response $response) {
 	$userData['height'] = filter_var($data['height'], FILTER_SANITIZE_NUMBER_INT);
 	$userData['weight'] = filter_var($data['weight'], FILTER_SANITIZE_NUMBER_INT);
 	$userData['unit'] 	= filter_var($data['unit'], FILTER_SANITIZE_STRING);
-	$userData['type'] 	= filter_var($data['type'], FILTER_SANITIZE_STRING);
 
 	// check if all required params
-	if (empty($userData['height']) || empty($userData['weight']) || empty($userData['unit']) || empty($userData['type'])) {
+	if (empty($userData['height']) || empty($userData['weight']) || empty($userData['unit'])) {
 		$this->logger->error('Some required params are empty');
 
 		$res = array(
