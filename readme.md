@@ -35,11 +35,15 @@ Parameters via GET request:
 
 ## Demo:
 
-Calculate BMI for weight 85 kg, height 185 (metric):
+<b>Live demo:</b>
+
+http://bakharevich.by/projects/bmi/public/bmi.html
+
+<b>API response</b> - calculate BMI for weight 85 kg, height 185 (metric):
 
 http://bakharevich.by/projects/bmi/public/get/?weight=85&height=185&unit=metric
 
-Calculate BMI for weight 187 pounds, height 72 inches (imperial):
+<b>API response</b> - calculate BMI for weight 187 pounds, height 72 inches (imperial):
 
 http://bakharevich.by/projects/bmi/public/get/?weight=187&height=72&unit=imperial
 
