@@ -48,8 +48,13 @@ http://bakharevich.by/projects/bmi/public/get/?weight=85&height=185&unit=metric
 http://bakharevich.by/projects/bmi/public/get/?weight=187&height=72&unit=imperial
 
   
-## Featuers
+## CLI Interface
 
+You can calculate BMI via PHP CLI:
+
+``` bash
+$ php bmi-cli.php --weight=85 --height=185 --unit=metric
+```
 
 ## Links
 
